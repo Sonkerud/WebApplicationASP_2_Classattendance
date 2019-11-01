@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using WebApplicationASP.Models;
-using WebApplicationASP.Services;
+using WebApplicationASP_2.Services;
 
-namespace WebApplicationASP.Controllers
+namespace WebApplicationASP_2.Controllers
 {
     [Route("[controller]")]
     [ApiController]
@@ -20,7 +16,7 @@ namespace WebApplicationASP.Controllers
 
         public JsonFileProductService ProductService { get; }
 
-        public IEnumerable<Product> Get()
+        public IEnumerable<Student> Get()
         {
             return ProductService.GetProducts();
         }
@@ -31,9 +27,8 @@ namespace WebApplicationASP.Controllers
         public ActionResult Get([FromQuery]string ProductId, 
                                 [FromQuery ]int Rating)
         {
-            ProductService.AddRating(ProductId, Rating);
+            //ProductService.AddRating(ProductId, Rating);
             return Ok();
         }
-
     }
 }

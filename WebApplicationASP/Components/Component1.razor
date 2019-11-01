@@ -1,0 +1,102 @@
+﻿
+@using Microsoft.AspNetCore.Components.Web
+@using WebApplicationASP_2.Services
+@using WebApplicationASP.Models
+@inject JsonFileProductService ProductService
+
+
+
+<div class="container">
+    <div class="card-header text-center bg-warning"><h3>Studenter Academy C# Hösten 2019:</h3></div>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>Namn</th>
+                <th>Närvarande</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in ProductService.GetProducts())
+            {
+                <tr>
+                    <td>@student.Name</td>
+                     <td>
+                        <button @onclick="( e=> SelectProduct(student.Id))"
+                                class="btn btn-danger btn-sm">
+                            Not attending
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <button class="btn btn-block btn-info text-center" @onclick="(e=> SortClass())"><h2>Sortera klass i grupper</h2></button>
+    <br />
+</div>
+<br />
+@if (sort)
+{
+<div class="container">
+
+    <table class="table table-dark table-hover table">
+
+        @foreach (var group in ProductService.GroupClass())
+        {
+            <thead class="thead-light">
+                <tr>
+                    <th>Grupp @group.Key</th>
+                    <th>Datum</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in group.Value)
+                {
+                    <tr>
+                        <td>Namn: @item.Name </td>
+                        <td>Datum: @DateTime.Now</td>
+                    </tr>
+                }
+            </tbody>
+        }
+    </table>
+    <div class="container text-center">
+        <h3>Gruppen som får äran att presentera idag är grupp nr: <span class="badge badge-secondary">@ProductService.ChoseGroupForPresentation()</span></h3>
+    </div>
+</div>
+}
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+@code {
+    Student selectedProduct;
+    string selectedProductId;
+    bool sort = false;
+
+
+    void SelectProduct(string productId)
+    {
+        selectedProductId = productId;
+        selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
+
+        SubmitAttendance(selectedProductId);
+    }
+
+
+    void SubmitAttendance(string id)
+    {
+        ProductService.ChangeAttendingStatus(id);
+    }
+
+    void SortClass()
+    {
+        var StudentList = ProductService.GetProducts().Where(x => x.Attending == "true");
+        sort = true;
+    }
+
+}

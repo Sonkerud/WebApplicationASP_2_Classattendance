@@ -1,0 +1,77 @@
+[
+  {
+    "Id": "1",
+    "Name": "Alexander Sonerud",
+    "Attending": "true"
+  },
+  {
+    "Id": "2",
+    "Name": "Viktor H\uFFFDrwing",
+    "Attending": "true"
+  },
+  {
+    "Id": "3",
+    "Name": "Samuel Lindberg",
+    "Attending": "true"
+  },
+  {
+    "Id": "4",
+    "Name": "Daniel Andersson",
+    "Attending": "true"
+  },
+  {
+    "Id": "5",
+    "Name": "Anja Johansson Arnsesson",
+    "Attending": "true"
+  },
+  {
+    "Id": "6",
+    "Name": "Marie Degerstr\uFFFDm",
+    "Attending": "true"
+  },
+  {
+    "Id": "7",
+    "Name": "Ansari Haji Cheteh",
+    "Attending": "true"
+  },
+  {
+    "Id": "8",
+    "Name": "Axel Friberg",
+    "Attending": "true"
+  },
+  {
+    "Id": "9",
+    "Name": "Abdi Gobena",
+    "Attending": "true"
+  },
+  {
+    "Id": "10",
+    "Name": "Malin Gr\uFFFD\uFFFDn",
+    "Attending": "true"
+  },
+  {
+    "Id": "11",
+    "Name": "Daniel L\uFFFDfqvist",
+    "Attending": "true"
+  },
+  {
+    "Id": "12",
+    "Name": "Jens L\uFFFDvgren",
+    "Attending": "true"
+  },
+  {
+    "Id": "13",
+    "Name": "Eric Runer",
+    "Attending": "true"
+  },
+  {
+    "Id": "14",
+    "Name": "Marten Viksten",
+    "Attending": "true"
+  },
+  {
+    "Id": "15",
+    "Name": "Jens L\uFFFDvgren",
+    "Attending": "true"
+  }
+]

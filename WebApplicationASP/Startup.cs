@@ -12,9 +12,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApplicationASP.Models;
-using WebApplicationASP.Services;
+using WebApplicationASP_2.Services;
 
-namespace WebApplicationASP
+namespace WebApplicationASP_2
 {
     public class Startup
     {
@@ -33,6 +33,7 @@ namespace WebApplicationASP
             services.AddServerSideBlazor();
             services.AddControllers();
             services.AddTransient<JsonFileProductService>();
+            services.AddServerSideBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,7 +70,7 @@ namespace WebApplicationASP
                 endpoints.MapGet("/products", (context) =>
                 {
                     var products = app.ApplicationServices.GetService<JsonFileProductService>().GetProducts();
-                    var json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
+                    var json = JsonSerializer.Serialize<IEnumerable<Student>>(products);
                     return context.Response.WriteAsync(json);
                 });
             });

@@ -1,5 +1,5 @@
 ﻿@page
-@using WebApplicationASP.Components
+@using WebApplicationASP_2.Components
 @model IndexModel
 @{
     ViewData["Title"] = "Hemma hos oss på";
@@ -9,7 +9,7 @@
     
 </div>
 
-@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
+@(await Html.RenderComponentAsync<Component1>(RenderMode.ServerPrerendered))
 
 <script src="_framework/blazor.server.js"></script>
 

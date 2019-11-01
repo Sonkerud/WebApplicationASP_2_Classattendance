@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using WebApplicationASP.Models;
-using WebApplicationASP.Services;
+using WebApplicationASP_2.Services;
 
 namespace WebApplicationASP.Pages
 {
@@ -14,7 +14,9 @@ namespace WebApplicationASP.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         public JsonFileProductService ProductService;
-        public IEnumerable<Product> Products { get; private set; }
+        public IEnumerable<Student> Products { get; private set; }
+
+
 
         public IndexModel(ILogger<IndexModel> logger,
             JsonFileProductService productService
